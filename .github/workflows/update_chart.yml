@@ -24,8 +24,16 @@ jobs:
         run: |
           pip install requests plotly kaleido
 
-      - name: Generate chart
-        run: python scripts/fetch_and_render.py
+      - name: Generate all charts
+          run: |
+            mkdir -p assets
+            python scripts/fetch_and_render_stars_growth.py
+            python scripts/fetch_and_render_language.py
+            python scripts/fetch_and_render_contributors.py
+            python scripts/fetch_and_render_topics.py
+            python scripts/fetch_and_render_repo_age.py
+            python scripts/fetch_and_render_issues.py
+            python scripts/update_readme.py
 
       - name: Update README
         run: python scripts/update_readme.py
