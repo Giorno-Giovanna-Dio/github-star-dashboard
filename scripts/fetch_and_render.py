@@ -2,6 +2,8 @@
 import requests
 import plotly.graph_objects as go
 from datetime import datetime
+import os
+os.makedirs("assets", exist_ok=True)
 
 def fetch_github_data():
     """從 GitHub API 抓取熱門專案資料"""
